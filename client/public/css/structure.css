@@ -1,0 +1,223 @@
+body {
+    font-family: "Segoe UI", "DejaVu Sans",Verdana, sans-serif;
+    background-image:-webkit-linear-gradient(#9f0909, #4e0000);
+    background-image:-o-linear-gradient(#9f0909, #4e0000);
+    background-image:linear-gradient(#9f0909, #4e0000);
+    background-size: 1rem 200rem;
+    font-size:0.8em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #000000;
+}
+.monBody #container {
+    width: 1300px;
+    margin: 0 auto;
+    background:#ffffff;
+}
+.monBody #header {
+    height:140px;
+    background-color:#000;
+    color:#fff;
+}
+
+.menu_haut {background-color:#000;color:#fff;margin-top:-13px;width:100%;}
+.menu_haut ul {
+	width:100%;
+	text-align:center;
+	height:30px;
+	margin-left:-50px;
+	margin-right:-50px;
+	}
+.menu_haut li {
+	text-decoration:none;
+	font-weight:bold;
+	display:inline;
+	font-size:14px;
+	padding:10px 10px 10px 10px;
+	color:#fff;
+	}
+.menu_haut li a {
+	color: #fff;
+	text-decoration: none;
+	display: inline;
+	height: 100%;
+	border: 0 none;
+}
+.menu_haut li a:hover {
+	color:#000;
+	background:#eee;
+}
+
+.monBody #contenu {
+    padding:20px;
+    overflow: auto;
+}
+.monBody #footer {
+    padding: 0 10px;
+    font-size:0.8em;
+    text-align:center;
+    height:150px;
+}
+.baniere{float:left;
+  margin-top:20px;
+  margin-left:5px;
+  border:none;}
+.baniere img{
+  border:none;
+}
+
+#LogoNode {
+    max-height: 20%;
+    max-width: 20%;
+}
+
+a  {
+    text-decoration:none;
+    color:#0072ff;
+}
+
+.traitVertical {
+  border-left: 1px white solid;
+}
+
+
+
+.photo_pres{
+    float:left;
+    width: 150px;
+    margin: 15px;
+}
+
+.liste_photo {
+    height: 150px;
+    display: inline-block;
+}
+
+a.info{
+    position:relative;
+}
+
+a.info:hover{
+    z-index:25;
+    background-color:#FFF;
+}
+
+a.info span{
+    display: none;
+}
+
+a.info:hover span{
+    display:block;
+    position:absolute;
+    top:2em; left:2em;
+    border:1px solid #000;
+    background-color:#FFF;
+    color:#000;
+    text-align: justify;
+    padding:5px;
+    width: 400px;
+}
+
+a.info:hover span img{
+    height: 150px;
+}
+
+.liste_star{
+    display: inline-block;
+    width: 25%;
+}
+
+.lettres {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.photo_lettre{
+    width: 150px;
+}
+
+#profil{
+    width: 60%;
+    margin: auto;
+    text-align: justify;
+}
+
+#profil p {
+    display: inline;
+}
+
+div.mySlides {
+    text-align: center;
+}
+
+.souligne {
+  color: black;
+  text-decoration: underline;
+}
+
+.article {
+  width: 60%;
+  display: inline-block;
+  text-align: left;
+  float: left;
+  border: solid;
+}
+
+.article div {
+  background-color: lightgray;
+}
+
+.lienFiche {
+  display: block;
+  float: right;
+  color: black;
+  text-decoration: underline;
+}
+
+.listeVips div{
+  background-color: black;
+}
+
+.listeVips {
+  width : 25%;
+  display: block;
+  float: right;
+  border: solid;
+  border-radius: 2%;
+  line-height: 80%;
+}
+
+#listePhotos1 {
+    float: right;
+    margin-right: 150px;
+    width: 25%;
+}
+
+.album {
+    width: 80px;
+    height: 100px;;
+    margin-right: 15px;
+}
+
+.imgAlbum {
+    width: 150px;
+}
+
+
+.PhotosAlbum {
+    width: 80px;
+    height: 100px;;
+    margin-right: 15px;
+}
+
+#listePhotos1 a {
+    display:inline-block;
+    margin-bottom:10px;
+}
+
+#imgAlbum {
+    width: 150px;
+    height: 200px;
+}
+

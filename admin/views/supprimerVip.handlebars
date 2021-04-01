@@ -1,0 +1,35 @@
+<div class="adminVipsPartial">
+  <table>
+       <thead>
+            <tr>
+                 <td><img src="/images/vips.png" alt="vips"></td>
+            </tr>
+       </thead>
+       <tbody>
+            <tr>
+                 <td class="traitHorizontal"><a href="/Vips/ajouter">Ajouter</a></td>
+            </tr>
+            <tr>
+                 <td class="traitHorizontal"><a href="/Vips/modifier">Modifier</a></td>
+            </tr>
+            <tr>
+                 <td class="traitHorizontal"><a href="/Vips/supprimer">Supprimer</a></td>
+            </tr>
+     </tbody>
+  </table>
+</div>
+
+<div class="adminVips">
+  <fieldset>
+       <legend><strong>Supprimer VIPs</strong></legend>
+       <form action="/Vips/supprimerVip" method="post">
+             Séléctionnez un vip : <select name="vip">
+                 <option value="0">Vips</option>
+                 {{#each vips}}
+                    <option value="{{this.VIP_NUMERO}}">{{this.VIP_PRENOM}} {{this.VIP_NOM}}</option>
+                 {{/each}}
+             </select>
+             <button type="submit" name="valider">Valider</button>
+         </form>
+  </fieldset>
+</div>

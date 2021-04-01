@@ -1,0 +1,24 @@
+{{#if articles}}
+    {{#each articles}}
+        <div class="article">
+            <legend> Article </legend>
+            <p class="souligne">{{this.ARTICLE_TITRE}}</p>
+            <p>{{this.ARTICLE_RESUME}}</p>
+            <div>
+                [Ajouté le {{formatDate this.ARTICLE_DATE_INSERT 'D MMMM YYYY'}}]
+                <a class="lienFiche" href="/profil/{{this.VIP_NUMERO}}">voir sa fiche</a>
+            </div>
+        </div>
+    {{/each}}
+{{else}}
+    Choisissez un vip pour voir les articles le concernant
+{{/if}}
+
+<div class=listeVips>
+    <div>
+        <img src="/images/vips.png">
+    </div>
+    {{#each vips}}
+        <a class="souligne" href="/articles/{{this.VIP_NUMERO}}"><p>{{this.VIP_PRENOM}} {{this.VIP_NOM}}</p></a>
+    {{/each}}
+</div>

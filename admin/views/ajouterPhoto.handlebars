@@ -1,0 +1,57 @@
+<div class="adminVipsPartial">
+     <table>
+          <thead>
+               <tr>
+                    <td><img src="/images/photos.png" alt="photos"></td>
+               </tr>
+          </thead>
+          <tbody>
+               <tr>
+                    <td class="traitHorizontal"><a href="/Photos/ajouter">Ajouter</a></td>
+               </tr>
+               <tr>
+                    <td class="traitHorizontal"><a href="/Photos/supprimer">Supprimer</a></td>
+               </tr>
+          </tbody>
+     </table>
+</div>
+
+<div class="adminVips">
+  <fieldset>
+       <legend><strong>Ajout d'une photo</strong></legend>
+       <form action="/Photos/ajouterPhoto" method="post">
+         <table>
+           <tr>
+             <th>Séléctionnez un vip : </th>
+             <td>
+               <select name="vip">
+                 <option value="0">Vips</option>
+                 {{#each vips}}
+                    <option value="{{this.VIP_NUMERO}}">{{this.VIP_PRENOM}} {{this.VIP_NOM}}</option>
+                 {{/each}}
+             </select>
+           </td>
+         </tr>
+         <tr>
+           <th>Sélectionner l'image : </th>
+           <td>
+             <input type="file"  name="photo">
+           </td>
+         </tr>
+         <tr>
+           <th>Titre : </th>
+           <td>
+             <input type="text" name="photo_sujet">
+           </td>
+         </tr>
+         <tr>
+           <th>Un petit commentaire ? </th>
+           <td>
+             <textarea name="photo_commentaire" rows="8" cols="80"></textarea>
+           </td>
+         </tr>
+       </table>
+             <button type="submit" name="valider">Valider</button>
+         </form>
+  </fieldset>
+</div>

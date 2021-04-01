@@ -1,0 +1,198 @@
+<div class="lettres">
+    Cliquez sur une lettre :
+    {{#each premiereLettreTableau}}
+        <a href="/repertoireSuite/{{this.premiereLettreColonne}}">{{this.premiereLettreColonne}}</a>
+    {{/each}}
+</div>
+
+{{#each noms}}
+    <div class="liste_star">
+        <img class="photo_lettre" src="/images/vip/{{this.PHOTO_ADRESSE}}">
+        <a href="/profil/{{this.VIP_NUMERO}}"><p>{{this.VIP_NOM}} {{this.VIP_PRENOM}}</p></a>
+    </div>
+{{/each}}
+<div id="profil">
+
+    {{#each infosPersos}}
+
+        <img class="photo_pres" src="/images/vip/{{this.PHOTO_ADRESSE}}">
+        <p><strong>Nom : </strong>{{this.VIP_NOM}} {{this.VIP_PRENOM}}</p><br><br>
+        <p><strong>Date de naissance : </strong>{{formatDate this.VIP_NAISSANCE 'dddd D MMMM YYYY'}}</p><br><br>
+        <p><strong>Nationalité : </strong>{{this.NATIONALITE_NOM}}</p><br><br>
+
+    {{/each}}
+
+    {{#if infosActeur}}
+        <p><strong>Profession :</strong>
+            {{#if estFemme}}
+                Actrice
+            {{else}}
+                Acteur
+            {{/if}}
+        </p><br>
+        <p><strong>Principal(aux) film(s) : </strong></p>
+        {{#each infosActeur}}
+            <p>
+                {{this.film_titre}} ({{formatDate this.film_daterealisation 'MMMM YYYY'}}) de
+                <a class="info" href="/profil/{{this.num_real}}">
+                    {{this.prenom_real}} {{this.nom_real}}
+                    <span>
+            <img src="/images/vip/{{this.PHOTO_ADRESSE}}">
+            <strong>{{this.prenom_real}} {{this.nom_real}}</strong>
+                        {{this.TEXTE}}
+        </span>
+                </a>
+                <br>
+            </p>
+        {{/each}}
+        <br>
+    {{/if}}
+
+    {{#if infosRealisateur}}
+        <p><strong>Profession : </strong> Réalisateur</p><br>
+        <p><strong>A réalisé : </strong></p>
+        {{#each infosRealisateur}}
+            <p>{{this.FILM_TITRE}} en {{formatDate this.FILM_DATEREALISATION 'MMMM YYYY'}}</p><br>
+        {{/each}}
+        <br>
+    {{/if}}
+
+    {{#if infosMannequin}}
+        <p><strong>Profession : </strong>Mannequin</p><br>
+        <p><strong>Principal(aux) défilé(s) : </strong></p>
+        {{#each infosMannequin}}
+            <p>{{this.defile_lieu}} ({{formatDate this.defile_date 'MMMM YYYY'}}) de
+                <a class="info" href="/profil/{{this.num_cout}}">
+                    {{this.pre_cout}} {{this.nom_cout}}
+                    <span>
+                    <img src="/images/vip/{{this.PHOTO_ADRESSE}}">
+                    <strong>{{this.pre_cout}} {{this.nom_cout}}</strong>
+                        {{this.VIP_TEXTE}}
+                </span>
+                </a>
+            </p>
+        <br>
+        {{/each}}
+        <br>
+    {{/if}}
+
+    {{#if infosCouturier}}
+        <p><strong>Profession : </strong> Couturier</p><br>
+        <p><strong>Ses collections ont défilé à : </strong></p>
+        {{#each infosCouturier}}
+            <p>{{this.DEFILE_LIEU}} en {{formatDate this.DEFILE_DATE 'MMMM YYYY'}}</p><br>
+        {{/each}}
+        <br>
+    {{/if}}
+
+    {{#if infosChanteur}}
+        <p><strong>Profession :</strong>
+            {{#if estFemme}}
+                Chanteuse
+            {{else}}
+                Chanteur
+            {{/if}}
+        </p>
+    <br>
+    <p><strong>Principal(aux) album(s) : </strong>
+        {{#each infosChanteur}}
+            <p>{{this.album_titre}} ({{formatDate this.album_date 'MMMM YYYY'}}) de {{this.maisondisque_nom}}</p><br>
+        {{/each}}
+        <br>
+    {{/if}}
+
+    {{#if mariages}}
+        <strong>Mariage(s) : </strong>
+        {{#each mariages}}
+            <p>
+                <a class="info" href="/profil/{{this.VIP_VIP_NUMERO}}">{{this.VIP_PRENOM}} {{this.VIP_NOM}}<span>
+            <img src="/images/vip/{{this.PHOTO_ADRESSE}}"/>
+          <strong class="infobulle_titre">{{this.VIP_PRENOM}} {{this.VIP_NOM}}</strong>
+                    {{this.TEXTE}}</span></a>
+                ({{formatDate this.DATE_EVENEMENT 'MMMM YYYY'}} --> {{#if this.MARIAGE_FIN}}{{formatDate this.MARIAGE_FIN 'MMMM YYYY'}}{{/if}}) lieu : {{this.MARIAGE_LIEU}}</p><br>
+        {{/each}}
+        <br>
+    {{/if}}
+
+    {{#if liaisons}}
+        <strong>Liaison(s) : </strong>
+        {{#each liaisons}}
+            <a class="info" href="/profil/{{this.VIP_VIP_NUMERO}}">{{this.VIP_PRENOM}} {{this.VIP_NOM}}<span>
+            <img src="/images/vip/{{this.PHOTO_ADRESSE}}"/>
+          <strong class="infobulle_titre">{{this.VIP_PRENOM}} {{this.VIP_NOM}}</strong>
+          <p>{{this.VIP_TEXTE}}</p></span></a>
+        <br>
+        {{/each}}
+        <br>
+    {{/if}}
+
+    {{#each infosPersos}}
+        <strong>Qui suis-je ? : </strong>{{this.VIP_TEXTE}}
+    {{/each}}
+
+    <div class="row">
+
+        {{#each photos}}
+            <div class="column">
+                <img class="liste_photo" src="/images/vip/{{this.PHOTO_ADRESSE}}" onclick="openModal();currentSlide({{@index}})" />
+            </div>
+        {{/each}}
+
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            {{#each photos}}
+                <div class="mySlides">
+                    <div class="numbertext">{{@index}} / {{../photos.length}}</div>
+                    <img src="/images/vip/{{this.PHOTO_ADRESSE}}" />
+                </div>
+            {{/each}}
+
+            <div class="caption-container">
+                <p id="caption"></p>
+            </div>
+            {{#each photos}}
+                <div class="column">
+                    <img class="demo cursor" src="/images/vip/{{this.PHOTO_ADRESSE}}" onclick="currentSlide({{@index}})" alt="{{this.PHOTO_COMMENTAIRE}}" height="100px">
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal() {
+        document.getElementById("myModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+    }
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n+1);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        captionText.innerHTML = dots[slideIndex-1].alt;
+    }
+</script>
